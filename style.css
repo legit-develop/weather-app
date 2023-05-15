@@ -46,3 +46,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background: #0062cc;
 }
+
+.icon img {
+  width: 100px;
+}
