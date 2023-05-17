@@ -10,4 +10,13 @@ formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   const cityValue = cityInputEl.value;
   console.log(cityValue);
+  getWeatherData(cityValue);
 });
+
+function getWeatherData(cityValue) {
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5)
+    } catch (error) {
+        console.log(error)
+    }
+}
