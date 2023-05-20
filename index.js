@@ -4,7 +4,7 @@ const weatherDataEl = document.getElementById("weather-data");
 const cityInputEl = document.getElementById("city-input");
 
 const formEl = document.querySelector("form");
-
+const tempEl = document.querySelector(".temperature");
 formEl.addEventListener("submit", (e) => {
   //to prevent the form from refreshing
   e.preventDefault();
@@ -24,13 +24,21 @@ async function getWeatherData(cityValue) {
     const data = await response.json();
     console.log(data);
     const temperature = Math.round(data.main.temp);
+    console.log(temperature);
+    tempEl.innerHTML = `${temperature} C`;
     const description = data.weather[0].description;
+    console.log(description);
     const icon = data.weather[0].icon;
+    console.log(icon);
     const details = [
       `Feels like: ${Math.round(data.main.feels_like)}`,
       `Humidity: ${data.main.humidity}`,
       `Wind speed: ${data.wind.speed}`,
     ];
+    weatherDataEl.querySelector(".icon").innerHTML = `<img
+    src="http://openweathermap.org/img/wn/${icon}.png"
+    alt="weather image"
+  />`;
   } catch (error) {
     console.log(error);
   }
