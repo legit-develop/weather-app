@@ -25,7 +25,7 @@ async function getWeatherData(cityValue) {
     console.log(data);
     const temperature = Math.round(data.main.temp);
     console.log(temperature);
-    tempEl.innerHTML = `${temperature} C`;
+    //tempEl.innerHTML = `${temperature} C`;
     const description = data.weather[0].description;
     console.log(description);
     const icon = data.weather[0].icon;
@@ -39,6 +39,9 @@ async function getWeatherData(cityValue) {
     src="http://openweathermap.org/img/wn/${icon}.png"
     alt="weather image"
   />`;
+    weatherDataEl.querySelector(
+      ".temperature"
+    ).textContent = `${temperature} C`;
   } catch (error) {
     console.log(error);
   }
