@@ -47,6 +47,10 @@ async function getWeatherData(cityValue) {
       .map((details) => `<div>${details}</div>`)
       .join("");
   } catch (error) {
-    console.log(error);
+    weatherDataEl.querySelector(".icon").innerHTML = "";
+    weatherDataEl.querySelector(".temperature").textContent = "";
+    weatherDataEl.querySelector(".description").textContent =
+      "An error happen, try again later";
+    weatherDataEl.querySelector(".details").innerHTML = "";
   }
 }
